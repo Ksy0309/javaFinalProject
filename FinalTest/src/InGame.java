@@ -1,0 +1,58 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class InGame extends JPanel{
+	JProgressBar HPbar = new JProgressBar(JProgressBar.HORIZONTAL,0,GameManager.GM.PlayerMaxHealth);
+	NumGame NumPuz;
+	Enemy enemy;
+	public InGame(int n) {
+		//setTitle("첫번째 윈도우 프로그램");
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Container con = getContentPane();
+		GridLayout grid = new GridLayout(2, 1);
+		NumPuz = new NumGame(n);
+		JPanel p = new JPanel();
+		
+		//con.add(NumPuz);
+		HPbar.setStringPainted(true);
+		HPbar.setValue(GameManager.GM.PlayerHealth);
+		HPbar.setString(GameManager.GM.PlayerHealth + " / " +GameManager.GM.PlayerMaxHealth);
+		p.setSize(300, 300);
+		p.setLayout(new BorderLayout());
+		
+		enemy = new Enemy(n-2);
+		p.add("Center", enemy);
+		p.add("South", HPbar);
+		//con.add(p);
+		//con.add(NumPuz);
+		add(p);
+		add(NumPuz);
+		
+		setPreferredSize(new Dimension(300,600));
+		setLayout(grid);
+		//pack();
+		//System.out.println("!!!");
+		setVisible(true);
+		GameManager.GM.inGame = this;
+		System.out.println(enemy.getSize());
+		
+	}
+        
+ 
+    public void setHPbar() {
+    	if(GameManager.GM.PlayerHealth < 0) {
+    		HPbar.setValue(0);
+    		HPbar.setString(0 + " / " +GameManager.GM.PlayerMaxHealth);
+    		
+    		//GameManager.GM.NG.frozen();
+    		//GameManager.GM.endGame(0);
+    		//GameManager.GM.clearLavel();
+    		//GameManager.GM.exitGame();
+    	}
+    	else {
+    		
+    		HPbar.setValue(GameManager.GM.PlayerHealth);
+    		HPbar.setString(GameManager.GM.PlayerHealth + " / " +GameManager.GM.PlayerMaxHealth);
+    	}
+    }
+}
