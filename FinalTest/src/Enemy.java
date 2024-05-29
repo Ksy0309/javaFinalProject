@@ -5,7 +5,7 @@ public class Enemy extends JPanel{
 	int Health;
 	int attackPower = 10;
 	int attackStep = 0;
-	int MaxAttackStep = 10;
+	int MaxAttackStep = 100;
 	String name = new String("");
 	JLabel NameText;
 	JLabel Step;

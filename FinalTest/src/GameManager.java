@@ -8,7 +8,7 @@ public class GameManager {
 	int map = 0;
 	int PlayerMaxHealth = 100;
 	int PlayerHealth = PlayerMaxHealth;
-	int PlayerDamage = 34;
+	int PlayerDamage = 66;
 	int PlayerArmor = 10;
 	int stageLavel; 
 	int sec = 0;
@@ -80,7 +80,7 @@ public class GameManager {
 		stageLavel++;
 		score += 50000;
 		NG.frozen();
-		if(stageLavel>1) {
+		if(stageLavel>3) {
 			endGame(1);
 		}
 		else {
