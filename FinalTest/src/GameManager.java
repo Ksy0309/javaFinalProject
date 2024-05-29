@@ -98,7 +98,7 @@ public class GameManager {
 		//game.ingame.enemy.revalidate();
 		//game.ingame.enemy.repaint();
 		//enemy.setVisible(true);
-		enemy.setLavel(stageLavel);
+		enemy.setLevel(stageLavel);
 		NG.unFrozen();
 		
 	}

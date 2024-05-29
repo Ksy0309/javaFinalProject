@@ -30,7 +30,7 @@ public class Enemy extends JPanel{
 		//HPbar.setLocation(((286-200)/2),55);
 		//P.setPreferredSize(new Dimension(150, 150));
 		//P.setLocation(((286-150)/2), 80);
-		setLavel(GameManager.GM.stageLavel);
+		setLevel(GameManager.GM.stageLavel);
 		NameText.setBounds(((286-20)/2),35,20,20);
 		HPbar.setBounds(((286-200)/2), 55, 200, 15);
 		P.setBounds(((286-150)/2), 80, 150, 150);
@@ -73,7 +73,7 @@ public class Enemy extends JPanel{
 		}
 	}
 	
-	public void setLavel(int level) {
+	public void setLevel(int level) {
 		if(level == 1) {
 			Health = MaxHealth; 
 			attackStep = MaxAttackStep;

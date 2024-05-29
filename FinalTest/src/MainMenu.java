@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class MainMenu extends JPanel implements ActionListener{
 	NumGameButton buttons[] = new NumGameButton[3];
-	JPanel LavelP = new JPanel();
+	JPanel LevelP = new JPanel();
 	JPanel startP = new JPanel();
 	
 	public MainMenu() {
@@ -21,14 +21,14 @@ public class MainMenu extends JPanel implements ActionListener{
 		NumGameButton back = new NumGameButton(7);
 		back.setText("<-");
 		back.addActionListener(this);
-		LavelP.add(back);
+		LevelP.add(back);
 		for(int i=3;i<6;i++) {
 			buttons[i-3] = new NumGameButton(i);
-			LavelP.add(buttons[i-3]);
+			LevelP.add(buttons[i-3]);
 			buttons[i-3].addActionListener(this);
 		}
-		LavelP.setVisible(false);
-		add(LavelP);
+		LevelP.setVisible(false);
+		add(LevelP);
 		add(startP);
 	}
 	public void actionPerformed(ActionEvent e) {
@@ -48,22 +48,22 @@ public class MainMenu extends JPanel implements ActionListener{
 			GameManager.GM.startGame(5);
 		}
 		if(bt.getText().equals("Start")) {
-			GoLavel();
+			GoLevel();
 		}
 		if(bt.getText().equals("Eixt")) {
-			//GoLavel();
+			//GoLevel();
 		}
 		if(bt.getText().equals("<-")) {
 			GoStart();
 		}
 	}
-	public void GoLavel() {
+	public void GoLevel() {
 		startP.setVisible(false);
-		LavelP.setVisible(true);
+		LevelP.setVisible(true);
 	}
 	
 	public void GoStart() {
-		LavelP.setVisible(false);
+		LevelP.setVisible(false);
 		startP.setVisible(true);
 	}
 	public void frozen() {
