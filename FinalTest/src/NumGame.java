@@ -29,8 +29,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			Buttons[i].setIcon(image[i]);
 			Buttons[i].setModel(new BModel());
 			Buttons[i].setFocusPainted(false);
-			//contentPane.add(Buttons[i]);
-			//NumPuz.
 			add(Buttons[i]);
 			Buttons[i].addActionListener(this);
 			//Buttons[i].addMouseListener(this);
@@ -40,7 +38,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		Buttons[map*map-1].setIcon(image[map*map-1]);
 		add(Buttons[map*map-1]);
 		Buttons[map*map-1].addActionListener(this);
-		//Buttons[map*map-1].addMouseListener(this);
 		reset();
 		//setPreferredSize(new Dimension(300,300));
 		setSize(300, 300);
@@ -61,10 +58,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				GameManager.GM.tmpStep++;
 				GameManager.GM.countStep();
 				isClear();
-				/*if(GameManager.GM.count>4) {
-					reset();
-					GameManager.GM.count=0;
-				}*/
 			}
 		}
 		if((bt.index+1)% map != 0){
@@ -77,10 +70,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				GameManager.GM.tmpStep++;
 				GameManager.GM.countStep();
 				isClear();
-				/*if(GameManager.GM.count>4) {
-					reset();
-					GameManager.GM.count=0;
-				}*/
 			}
 		}
 		if((bt.index) - map >= 0) {
@@ -93,10 +82,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				GameManager.GM.tmpStep++;
 				GameManager.GM.countStep();
 				isClear();
-				/*if(GameManager.GM.count>4) {
-					reset();
-					GameManager.GM.count=0;
-				}*/
 			}
 		}
 		if((bt.index) + map < map* map) {
@@ -109,10 +94,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				GameManager.GM.tmpStep++;
 				GameManager.GM.countStep();
 				isClear();
-				/*if(GameManager.GM.count>4) {
-					reset();
-					GameManager.GM.count=0;
-				}*/
 			}
 		}
 	}
