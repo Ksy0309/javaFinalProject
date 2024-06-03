@@ -16,6 +16,7 @@ public class MainMenu extends JPanel implements ActionListener{
 		NumGameButton eixt = new NumGameButton(7);
 		eixt.setText("Eixt");
 		start.addActionListener(this);
+		eixt.addActionListener(this);
 		startP.add(start);
 		startP.add(eixt);
 		NumGameButton back = new NumGameButton(7);
@@ -51,7 +52,7 @@ public class MainMenu extends JPanel implements ActionListener{
 			GoLevel();
 		}
 		if(bt.getText().equals("Eixt")) {
-			//GoLevel();
+			System.exit(0);
 		}
 		if(bt.getText().equals("<-")) {
 			GoStart();
