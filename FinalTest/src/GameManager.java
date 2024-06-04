@@ -8,7 +8,7 @@ public class GameManager {
 	int map = 0;
 	int PlayerMaxHealth = 100;
 	int PlayerHealth = PlayerMaxHealth;
-	int PlayerDamage = 66;
+	int PlayerDamage = 30;
 	int PlayerArmor = 10;
 	int stageLavel; 
 	int sec = 0;

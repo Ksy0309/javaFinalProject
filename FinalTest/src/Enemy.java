@@ -23,7 +23,7 @@ public class Enemy extends JPanel{
 		Step = new JLabel(Integer.toString(attackStep));
 
 		setLevel(GameManager.GM.stageLavel);
-		NameText.setBounds(((286-20)/2),35,20,20);
+		NameText.setBounds(((286-50)/2),35,50,20);
 		HPbar.setBounds(((286-200)/2), 55, 200, 15);
 		P.setBounds(((286-150)/2), 80, 150, 150);
 		Step.setBounds(286-50, (258/2), 50, 50);
@@ -65,7 +65,11 @@ public class Enemy extends JPanel{
 	
 	public void setLevel(int level) {
 		if(level == 1) {
+			MaxHealth = 50;
 			Health = MaxHealth; 
+			HPbar.setMaximum(MaxHealth);
+			attackPower = 10;
+			MaxAttackStep = 80;
 			attackStep = MaxAttackStep;
 			name = "적1";
 			//NameText = new JLabel(name);
@@ -75,7 +79,11 @@ public class Enemy extends JPanel{
 			setHPbar();
 		}
 		if(level == 2) {
+			MaxHealth = 70;
 			Health = MaxHealth; 
+			HPbar.setMaximum(MaxHealth);
+			attackPower = 20;
+			MaxAttackStep = 60; 
 			attackStep = MaxAttackStep;
 			name = "적2";
 			NameText.setText(name);
@@ -84,9 +92,13 @@ public class Enemy extends JPanel{
 			setHPbar();
 		}
 		if(level == 3) {
+			MaxHealth = 100;
 			Health = MaxHealth; 
+			HPbar.setMaximum(MaxHealth);
+			attackPower = 25;
+			MaxAttackStep = 50; 
 			attackStep = MaxAttackStep;
-			name = "적3";
+			name = "보스";
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			P.setBackground(Color.green);
