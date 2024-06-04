@@ -9,7 +9,7 @@ public class ScoreResult extends JPanel{
 	public ScoreResult() {
 		setBounds(20, 100, 250, 350);
 		setBackground(new Color(0,0,0,150));
-		setBorder(BorderFactory.createEmptyBorder(0 , 20 , 0 , 0));
+		setBorder(BorderFactory.createEmptyBorder(0 , 30 , 0 , 40));
 		GridLayout grid = new GridLayout(5, 1);
 		setLayout(grid);
 		time = new JPanel();
@@ -24,7 +24,6 @@ public class ScoreResult extends JPanel{
 		total.setBackground(new Color(0,0,0,0));
 		
 		time.setLayout(new BorderLayout());
-		time.setBorder(BorderFactory.createEmptyBorder(0 , 0 , 0 , 60));
 		t1 = new JLabel("소요시간 : ");
 		t2 = new JLabel(GameManager.GM.getMin()+ " : "+ GameManager.GM.getSec());
 		t1.setForeground(Color.white);
@@ -35,7 +34,6 @@ public class ScoreResult extends JPanel{
 		time.add(t2, BorderLayout.EAST);
 		
 		step.setLayout(new BorderLayout());
-		step.setBorder(BorderFactory.createEmptyBorder(0 , 0 , 0 , 70));
 		s1 = new JLabel("스텝 : ");
 		s2 = new JLabel(""+GameManager.GM.stepCount);
 		s1.setForeground(Color.white);
@@ -46,7 +44,6 @@ public class ScoreResult extends JPanel{
 		step.add(s2, BorderLayout.EAST);
 		
 		kill.setLayout(new BorderLayout());
-		kill.setBorder(BorderFactory.createEmptyBorder(0 , 0 , 0 , 70));
 		k1 = new JLabel("KILL : ");
 		k2 = new JLabel(""+(GameManager.GM.stageLavel-1));
 		k1.setForeground(Color.white);
@@ -57,7 +54,6 @@ public class ScoreResult extends JPanel{
 		kill.add(k2, BorderLayout.EAST);
 		
 		damage.setLayout(new BorderLayout());
-		damage.setBorder(BorderFactory.createEmptyBorder(0 , 0 , 0 , 70));
 		d1 = new JLabel("총 데미지 : ");
 		d2 = new JLabel(""+(GameManager.GM.totalDamage));
 		d1.setForeground(Color.white);
@@ -68,7 +64,6 @@ public class ScoreResult extends JPanel{
 		damage.add(d2, BorderLayout.EAST);
 		
 		total.setLayout(new BorderLayout());
-		total.setBorder(BorderFactory.createEmptyBorder(0 , 0 , 0 , 30));
 		to1 = new JLabel("총 점수 : ");
 		to2 = new JLabel(""+(GameManager.GM.stageLavel-1));
 		to1.setForeground(Color.white);
