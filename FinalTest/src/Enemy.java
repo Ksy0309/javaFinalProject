@@ -15,34 +15,24 @@ public class Enemy extends JPanel{
 		GameManager.GM.enemy = this;
 		GridLayout grid = new GridLayout(3, 1);
 		setLayout(null);
-		
-		//MaxHealth = new int(100);
-		//Health = MaxHealth; 
-		//attackStep = MaxAttackStep;
-		//name = new String("적1");
 		NameText = new JLabel(name);
 		NameText.setHorizontalAlignment(JLabel.CENTER);
+		
+		HPbar.setForeground(Color.red);
 		P = new JPanel();
 		Step = new JLabel(Integer.toString(attackStep));
-		//NameText.setPreferredSize(new Dimension(20, 20));
-		//NameText.setLocation(((286-20)/2),35);
-		//HPbar.setPreferredSize(new Dimension(200, 15));
-		//HPbar.setLocation(((286-200)/2),55);
-		//P.setPreferredSize(new Dimension(150, 150));
-		//P.setLocation(((286-150)/2), 80);
+
 		setLevel(GameManager.GM.stageLavel);
 		NameText.setBounds(((286-20)/2),35,20,20);
 		HPbar.setBounds(((286-200)/2), 55, 200, 15);
 		P.setBounds(((286-150)/2), 80, 150, 150);
 		Step.setBounds(286-50, (258/2), 50, 50);
-		//P.setSize(100, 100);
 		add(NameText);
 		HPbar.setStringPainted(true);
 		add(HPbar);
 		add(P);
 		add(Step);
 		
-		//setSize(286, 258);
 		setPreferredSize(new Dimension(286, 258));
 		System.out.println(getSize());
 		

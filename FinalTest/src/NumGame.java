@@ -18,8 +18,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		GameManager.GM.NG = this;
 		Buttons = new NumGameButton[n*n];
 		GridLayout grid = new GridLayout(n, n);
-		//JPanel NumPuz = new JPanel();
-		//NumPuz.setLayout(grid);
 		setLayout(grid);
 		for(int i=0; i < n*n; ++i) {
 			image[i] = new ImageIcon("./num"+(n)+"-"+i+".png");
@@ -31,7 +29,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			Buttons[i].setFocusPainted(false);
 			add(Buttons[i]);
 			Buttons[i].addActionListener(this);
-			//Buttons[i].addMouseListener(this);
 		}
 		Buttons[map*map-1] = new NumGameButton(-1);
 		Buttons[map*map-1].setModel(new BModel());
@@ -39,14 +36,11 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		add(Buttons[map*map-1]);
 		Buttons[map*map-1].addActionListener(this);
 		reset();
-		//setPreferredSize(new Dimension(300,300));
 		setSize(300, 300);
-		//pack();
 		setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e) {
 		NumGameButton bt = (NumGameButton)e.getSource();
-		//GameManager.GM.ep.setVisible(true);
 		if(bt.getText().equals("-1"))return;
 		if((bt.index+1)% map != 1){
 			if(Buttons[bt.index - 1].getText().equals("-1")) {	

@@ -6,14 +6,12 @@ public class InGame extends JPanel{
 	NumGame NumPuz;
 	Enemy enemy;
 	public InGame(int n) {
-		//setTitle("첫번째 윈도우 프로그램");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//Container con = getContentPane();
+		
 		GridLayout grid = new GridLayout(2, 1);
 		NumPuz = new NumGame(n);
 		JPanel p = new JPanel();
 		
-		//con.add(NumPuz);
+		HPbar.setForeground(Color.red);
 		HPbar.setStringPainted(true);
 		HPbar.setValue(GameManager.GM.PlayerHealth);
 		HPbar.setString(GameManager.GM.PlayerHealth + " / " +GameManager.GM.PlayerMaxHealth);
@@ -23,15 +21,11 @@ public class InGame extends JPanel{
 		enemy = new Enemy(n-2);
 		p.add("Center", enemy);
 		p.add("South", HPbar);
-		//con.add(p);
-		//con.add(NumPuz);
 		add(p);
 		add(NumPuz);
 		
 		setPreferredSize(new Dimension(300,600));
 		setLayout(grid);
-		//pack();
-		//System.out.println("!!!");
 		setVisible(true);
 		GameManager.GM.inGame = this;
 		System.out.println(enemy.getSize());
@@ -44,10 +38,6 @@ public class InGame extends JPanel{
     		HPbar.setValue(0);
     		HPbar.setString(0 + " / " +GameManager.GM.PlayerMaxHealth);
     		
-    		//GameManager.GM.NG.frozen();
-    		//GameManager.GM.endGame(0);
-    		//GameManager.GM.clearLavel();
-    		//GameManager.GM.exitGame();
     	}
     	else {
     		

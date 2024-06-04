@@ -10,7 +10,6 @@ public class MainMenu extends JPanel implements ActionListener{
 	public MainMenu() {
 		setLayout(new FlowLayout(FlowLayout.LEFT, 40, 40));
 		setPreferredSize(new Dimension(300, 600));
-		//setBackground(Color.black);
 		NumGameButton start = new NumGameButton(7);
 		start.setText("Start");
 		NumGameButton eixt = new NumGameButton(7);
@@ -35,7 +34,6 @@ public class MainMenu extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		NumGameButton bt = (NumGameButton)e.getSource();
 		JButton BT = (JButton)e.getSource();
-		//GameManager.GM.ep.setVisible(true);
 		if(bt.getText().equals("3")) {
 			GameManager.GM.stageLavel = 1;
 			GameManager.GM.startGame(3);

@@ -3,11 +3,6 @@ import java.awt.*;
 public class ScoreResult extends JPanel{
 	JPanel time , step, kill,damage, total;
 	JLabel t1, t2, s1, s2, k1, k2,	d1,	d2, to1, to2;
-	//JPanel step;
-	//JPanel kill;
-	//JPanel total;
-	//JLabel s1;
-	//JLabel s2;
 	JLabel s3;
 	JLabel s4;
 	JLabel s5;
@@ -62,7 +57,6 @@ public class ScoreResult extends JPanel{
 		kill.add(k2, BorderLayout.EAST);
 		
 		damage.setLayout(new BorderLayout());
-		//total.setBackground(Color.white);
 		damage.setBorder(BorderFactory.createEmptyBorder(0 , 0 , 0 , 70));
 		d1 = new JLabel("총 데미지 : ");
 		d2 = new JLabel(""+(GameManager.GM.totalDamage));
@@ -74,7 +68,6 @@ public class ScoreResult extends JPanel{
 		damage.add(d2, BorderLayout.EAST);
 		
 		total.setLayout(new BorderLayout());
-		//total.setBackground(Color.white);
 		total.setBorder(BorderFactory.createEmptyBorder(0 , 0 , 0 , 30));
 		to1 = new JLabel("총 점수 : ");
 		to2 = new JLabel(""+(GameManager.GM.stageLavel-1));

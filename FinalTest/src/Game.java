@@ -22,8 +22,4 @@ public class Game extends JFrame{
 		pack();
 		setVisible(true);
 	}
-	
-	public void startGame(int lavel) {
-	
-	}
 }

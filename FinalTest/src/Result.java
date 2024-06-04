@@ -13,7 +13,6 @@ public class Result extends JPanel implements ActionListener{
 		setBackground(new Color(0,0,0,128));
 		resultMassage = new JLabel("점수판");
 		MP = new JPanel();
-		//MP.setBackground(Color.black);
 		MP.add(resultMassage);
 		MP.setBounds(45, 25, 200, 50);
 		MP.setBackground(new Color(0,0,0,0));
@@ -31,7 +30,6 @@ public class Result extends JPanel implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		//JButton bt = (JButton)e.getSource();
 		System.out.println("!!!!!!");
 		GameManager.GM.exitGame();
 		}

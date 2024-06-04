@@ -21,14 +21,12 @@ public class GameManager {
 	Game game;
 	Enemy enemy;
 	NumGame NG;
-	//JPanel ep;
 	public void clear() {
 		System.out.println("clear!!!");
 		enemy.Health -= PlayerDamage;
 		totalDamage += PlayerDamage;
 		System.out.println(PlayerHealth);
 		getScore();
-		//inGame.worker.execute();
 		enemy.setHPbar();
 	}
 	public void countStep() {
@@ -69,8 +67,6 @@ public class GameManager {
 		
 	}
 	public void exitGame() {
-		//game.ingame.setVisible(false);
-		//game.con.remove(game.ingame);
 		game.con.remove(game.ingame);
 		game.result.setVisible(false);
 		game.menu.setVisible(true);
@@ -87,17 +83,8 @@ public class GameManager {
 			
 			game.reward.setVisible(true);
 		}
-		//game.ingame.setEnabled(false);
-		//game.menu.frozen();
 	}
 	public void nextLavel() {
-		//game.ingame = new InGame(map);
-		//enemy.setVisible(false);
-		//game.ingame.enemy.setLavel(1);
-		//game.ingame.enemy = new Enemy(2);
-		//game.ingame.enemy.revalidate();
-		//game.ingame.enemy.repaint();
-		//enemy.setVisible(true);
 		enemy.setLevel(stageLavel);
 		NG.unFrozen();
 		
@@ -132,7 +119,6 @@ public class GameManager {
 	}
 	public String getTotalScore() {
 		String total ="";
-		//System.out.println((float)(1f+(100f/stepCount))+" "+(float)(1f+(100f/sec))+" ");
 		System.out.println("최종 : " +score);
 		total = String.format("%010d", score);
 		return total;

@@ -7,7 +7,6 @@ public class NumGameButton extends JButton{
 		super(Integer.toString(n));
 		if(n == -1) {
 			index = GameManager.GM.map;
-			//setText(Integer.toString((int)(Math.random()*GameManager.GM.map)));
 		}
 		else
 			index = n;

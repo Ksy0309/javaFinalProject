@@ -6,7 +6,6 @@ public class Reward extends JPanel implements ActionListener{
 	JButton RB[] = new JButton[3];
 	public Reward() {
 		setBackground(new Color(0,0,0,128));
-		//setPreferredSize(new Dimension(300, 600));
 		setSize(300, 600);
 		setLayout(new FlowLayout(FlowLayout.CENTER,75,60));
 		for(int i=0;i<3;i++) {
@@ -22,7 +21,6 @@ public class Reward extends JPanel implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton bt = (JButton)e.getSource();
-		//GameManager.GM.ep.setVisible(true);
 		if(bt.getText().equals("체력 100% 회복")) {
 			GameManager.GM.PlayerHealth = GameManager.GM.PlayerMaxHealth;
 			GameManager.GM.inGame.setHPbar();
