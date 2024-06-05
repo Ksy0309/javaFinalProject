@@ -7,13 +7,14 @@ import java.awt.event.MouseListener;
 import javax.swing.DefaultButtonModel;
 
 public class NumGame extends JPanel implements ActionListener, MouseListener{
-	int map = 0;
+	int col = 0;
 	ImageIcon[] image;
 	Toolkit toolkit = getToolkit();
 	NumGameButton Buttons[];
 	public NumGame(int n) {
-		map = n;
-		image = new ImageIcon[map*map];
+		col = n;
+		GameManager.GM.col = col;
+		image = new ImageIcon[col*col];
 		GameManager.GM.map = n*n-1;
 		GameManager.GM.NG = this;
 		Buttons = new NumGameButton[n*n];
@@ -30,11 +31,11 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			add(Buttons[i]);
 			Buttons[i].addActionListener(this);
 		}
-		Buttons[map*map-1] = new NumGameButton(-1);
-		Buttons[map*map-1].setModel(new BModel());
-		Buttons[map*map-1].setIcon(image[map*map-1]);
-		add(Buttons[map*map-1]);
-		Buttons[map*map-1].addActionListener(this);
+		Buttons[col*col-1] = new NumGameButton(-1);
+		Buttons[col*col-1].setModel(new BModel());
+		Buttons[col*col-1].setIcon(image[col*col-1]);
+		add(Buttons[col*col-1]);
+		Buttons[col*col-1].addActionListener(this);
 		reset();
 		setSize(300, 300);
 		setVisible(true);
@@ -42,7 +43,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		NumGameButton bt = (NumGameButton)e.getSource();
 		if(bt.getText().equals("-1"))return;
-		if((bt.index+1)% map != 1){
+		if((bt.index+1)% col != 1){
 			if(Buttons[bt.index - 1].getText().equals("-1")) {	
 				Buttons[bt.index-1].setText(bt.getText());
 				Buttons[bt.index-1].setIcon(bt.getIcon());
@@ -54,36 +55,36 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				isClear();
 			}
 		}
-		if((bt.index+1)% map != 0){
+		if((bt.index+1)% col != 0){
 			if(Buttons[bt.index + 1].getText().equals("-1")) {	
 				Buttons[bt.index+1].setText(bt.getText());
 				Buttons[bt.index+1].setIcon(bt.getIcon());
 				bt.setText("-1");
-				bt.setIcon(image[map*map-1]);
+				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
 				GameManager.GM.countStep();
 				isClear();
 			}
 		}
-		if((bt.index) - map >= 0) {
-			if(Buttons[bt.index - map].getText().equals("-1")) {
-				Buttons[bt.index-map].setText(bt.getText());
-				Buttons[bt.index-map].setIcon(bt.getIcon());
+		if((bt.index) - col >= 0) {
+			if(Buttons[bt.index - col].getText().equals("-1")) {
+				Buttons[bt.index-col].setText(bt.getText());
+				Buttons[bt.index-col].setIcon(bt.getIcon());
 				bt.setText("-1");
-				bt.setIcon(image[map*map-1]);
+				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
 				GameManager.GM.countStep();
 				isClear();
 			}
 		}
-		if((bt.index) + map < map* map) {
-			if(Buttons[bt.index + map].getText().equals("-1")) {
-				Buttons[bt.index+ map].setText(bt.getText());
-				Buttons[bt.index+ map].setIcon(bt.getIcon());
+		if((bt.index) + col < col* col) {
+			if(Buttons[bt.index + col].getText().equals("-1")) {
+				Buttons[bt.index+ col].setText(bt.getText());
+				Buttons[bt.index+ col].setIcon(bt.getIcon());
 				bt.setText("-1");
-				bt.setIcon(image[map*map-1]);
+				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
 				GameManager.GM.countStep();
@@ -116,7 +117,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				
 			}
 			
-			if(map %2 != 0) {
+			if(col %2 != 0) {
 				if(in % 2 == 0) {
 					break;
 				}
@@ -140,20 +141,20 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			}
 		}
 	public void frozen() {
-		for(int i = 0; i<map*map-1;i++) {
+		for(int i = 0; i<col*col-1;i++) {
 			Buttons[i].setEnabled(false);
 			Buttons[i].setVisible(false);
 		}
-		Buttons[map*map-1].setEnabled(false);
-		Buttons[map*map-1].setVisible(false);
+		Buttons[col*col-1].setEnabled(false);
+		Buttons[col*col-1].setVisible(false);
 	}
 	public void unFrozen() {
-		for(int i = 0; i<map*map-1;i++) {
+		for(int i = 0; i<col*col-1;i++) {
 			Buttons[i].setEnabled(true);
 			Buttons[i].setVisible(true);
 		}
-		Buttons[map*map-1].setEnabled(true);
-		Buttons[map*map-1].setVisible(true);
+		Buttons[col*col-1].setEnabled(true);
+		Buttons[col*col-1].setVisible(true);
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -161,7 +162,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		NumGameButton bt = (NumGameButton)e.getSource();
 		//GameManager.GM.ep.setVisible(true);
 		if(bt.getText().equals("-1"))return;
-		if((bt.index+1)% map != 1){
+		if((bt.index+1)% col != 1){
 			if(Buttons[bt.index - 1].getText().equals("-1")) {	
 				Buttons[bt.index-1].setText(bt.getText());
 				bt.setText("-1");
@@ -174,7 +175,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				}*/
 			}
 		}
-		if((bt.index+1)% map != 0){
+		if((bt.index+1)% col != 0){
 			if(Buttons[bt.index + 1].getText().equals("-1")) {	
 				Buttons[bt.index+1].setText(bt.getText());
 				bt.setText("-1");
@@ -187,9 +188,9 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				}*/
 			}
 		}
-		if((bt.index) - map >= 0) {
-			if(Buttons[bt.index - map].getText().equals("-1")) {
-				Buttons[bt.index-map].setText(bt.getText());
+		if((bt.index) - col >= 0) {
+			if(Buttons[bt.index - col].getText().equals("-1")) {
+				Buttons[bt.index-col].setText(bt.getText());
 				bt.setText("-1");
 				GameManager.GM.stepCount++;
 				GameManager.GM.countStep();
@@ -200,9 +201,9 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				}*/
 			}
 		}
-		if((bt.index) + map < map* map) {
-			if(Buttons[bt.index + map].getText().equals("-1")) {
-				Buttons[bt.index+ map].setText(bt.getText());
+		if((bt.index) + col < col* col) {
+			if(Buttons[bt.index + col].getText().equals("-1")) {
+				Buttons[bt.index+ col].setText(bt.getText());
 				bt.setText("-1");
 				GameManager.GM.stepCount++;
 				GameManager.GM.countStep();

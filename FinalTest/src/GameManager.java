@@ -6,6 +6,7 @@ public class GameManager {
 	public static GameManager GM = new GameManager();
 	int stepCount;
 	int map = 0;
+	int col = 0;
 	int PlayerMaxHealth = 100;
 	int PlayerHealth = PlayerMaxHealth;
 	int PlayerDamage = 30;

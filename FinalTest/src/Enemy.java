@@ -69,10 +69,9 @@ public class Enemy extends JPanel{
 			Health = MaxHealth; 
 			HPbar.setMaximum(MaxHealth);
 			attackPower = 10;
-			MaxAttackStep = 80;
+			MaxAttackStep = 80*(GameManager.GM.col-2+GameManager.GM.col-3);
 			attackStep = MaxAttackStep;
 			name = "적1";
-			//NameText = new JLabel(name);
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			P.setBackground(Color.red);
@@ -83,7 +82,7 @@ public class Enemy extends JPanel{
 			Health = MaxHealth; 
 			HPbar.setMaximum(MaxHealth);
 			attackPower = 20;
-			MaxAttackStep = 60; 
+			MaxAttackStep = 60*(GameManager.GM.col-2+GameManager.GM.col-3); 
 			attackStep = MaxAttackStep;
 			name = "적2";
 			NameText.setText(name);
@@ -96,7 +95,7 @@ public class Enemy extends JPanel{
 			Health = MaxHealth; 
 			HPbar.setMaximum(MaxHealth);
 			attackPower = 25;
-			MaxAttackStep = 50; 
+			MaxAttackStep = 50*(GameManager.GM.col-2+GameManager.GM.col-3); 
 			attackStep = MaxAttackStep;
 			name = "보스";
 			NameText.setText(name);
