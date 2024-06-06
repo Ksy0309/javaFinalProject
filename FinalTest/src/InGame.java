@@ -5,6 +5,7 @@ public class InGame extends JPanel{
 	JProgressBar HPbar = new JProgressBar(JProgressBar.HORIZONTAL,0,GameManager.GM.PlayerMaxHealth);
 	NumGame NumPuz;
 	Enemy enemy;
+	
 	public InGame(int n) {
 		
 		GridLayout grid = new GridLayout(2, 1);

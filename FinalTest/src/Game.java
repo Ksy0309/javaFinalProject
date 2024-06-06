@@ -1,11 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
-public class Game extends JFrame{
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+public class Game extends JFrame implements KeyListener{
 	int GameLavel = 1;
 	InGame ingame;
 	MainMenu menu;
 	Reward reward;
 	Result result;
+	EscapeMenu esc;
 	Container con = getContentPane();
 	public Game() {
 		setTitle("첫번째 윈도우 프로그램");
@@ -15,11 +18,30 @@ public class Game extends JFrame{
 		menu = new MainMenu();
 		reward = new Reward();
 		result = new Result(); 
+		esc = new EscapeMenu();
+		con.add(esc);
 		con.add(reward);
 		con.add(result);
 		con.add(menu);
+		con.addKeyListener(this);
+		con.setFocusable(true);
+		con.requestFocus();
 		setPreferredSize(new Dimension(300, 600));
 		pack();
 		setVisible(true);
 	}
+	
+	public void keyTyped(KeyEvent e) {
+	}
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE && GameManager.GM.isongame == true) {
+			if(!GameManager.GM.isEscON)
+				GameManager.GM.escOn();
+			else
+				GameManager.GM.escOff();
+		}
+    }
+	public void keyPressed(KeyEvent e) {
+		
+    }
 }

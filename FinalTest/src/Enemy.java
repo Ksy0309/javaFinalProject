@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-public class Enemy extends JPanel{
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Enemy extends JPanel implements ActionListener{
 	int MaxHealth = 100;
 	int Health;
 	int attackPower = 10;
@@ -11,6 +13,7 @@ public class Enemy extends JPanel{
 	JLabel Step;
 	JLabel Sheild;
 	JLabel Score;
+	JButton esc;
 	JProgressBar HPbar = new JProgressBar(JProgressBar.HORIZONTAL,0,MaxHealth);
 	JPanel P;
 	public Enemy(int level) {
@@ -27,14 +30,17 @@ public class Enemy extends JPanel{
 		HPbar.setForeground(Color.red);
 		P = new JPanel();
 		Step = new JLabel(Integer.toString(attackStep));
-
+		esc = new JButton("esc");
 		setLevel(GameManager.GM.stageLavel);
 		NameText.setBounds(((286-50)/2),35,50,20);
 		HPbar.setBounds(((286-200)/2), 55, 200, 15);
 		P.setBounds(((286-150)/2), 80, 150, 150);
 		Step.setBounds(286-50, (258/2), 50, 50);
 		Sheild.setBounds(((286-40)),230,50,20);
-		Score.setBounds(0, 0, 200, 40);
+		Score.setBounds(10, 5, 200, 40);
+		esc.setBounds(240, 5, 40, 40);
+		esc.addActionListener(this);
+		esc.setModel(new BModel());
 		add(NameText);
 		HPbar.setStringPainted(true);
 		add(HPbar);
@@ -42,6 +48,7 @@ public class Enemy extends JPanel{
 		add(Step);
 		add(Sheild);
 		add(Score);
+		add(esc);
 		setPreferredSize(new Dimension(286, 258));
 		System.out.println(getSize());
 		
@@ -113,5 +120,9 @@ public class Enemy extends JPanel{
 			P.setBackground(Color.green);
 			setHPbar();
 		}
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		GameManager.GM.escOn();
 	}
 }

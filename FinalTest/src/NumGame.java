@@ -264,19 +264,4 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		}
 }
 
-class BModel extends DefaultButtonModel{
-	@Override
-    public boolean isPressed() {
-        return false;
-    }
 
-    @Override
-    public boolean isRollover() {
-        return false;
-    }
-
-    @Override
-    public void setRollover(boolean b) {
-        //NOOP
-    }
-}

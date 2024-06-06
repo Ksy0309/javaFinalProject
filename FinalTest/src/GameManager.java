@@ -20,6 +20,7 @@ public class GameManager {
 	int score = 0;
 	boolean isongame;
 	boolean isSheild = false;
+	boolean isEscON = false;
 	InGame inGame;
 	Game game;
 	Enemy enemy;
@@ -83,7 +84,9 @@ public class GameManager {
 	}
 	public void exitGame() {
 		game.con.remove(game.ingame);
+		isongame = false;
 		game.result.setVisible(false);
+		game.menu.GoStart();
 		game.menu.setVisible(true);
 		game.menu.unFrozen();
 	}
@@ -108,11 +111,11 @@ public class GameManager {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 			public void run() {
-				if(isongame) {
+				if(isongame && !isEscON) {
 					sec++;
 					tmpSec++;
 				}
-				else {
+				if(!isongame) {
 					timer.cancel();
 				}
 			}
@@ -138,5 +141,17 @@ public class GameManager {
 		System.out.println("최종 : " +score);
 		total = String.format("%010d", score);
 		return total;
+	}
+	public void escOn() {
+		GameManager.GM.isEscON = true;
+		enemy.esc.setEnabled(false);
+		GameManager.GM.inGame.NumPuz.frozen();
+		game.esc.setVisible(true);
+	}
+	public void escOff() {
+		GameManager.GM.inGame.NumPuz.unFrozen();
+		enemy.esc.setEnabled(true);
+		GameManager.GM.isEscON = false;
+		game.esc.setVisible(false);
 	}
 }
