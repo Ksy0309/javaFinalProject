@@ -11,6 +11,7 @@ public class GameManager {
 	int PlayerHealth = PlayerMaxHealth;
 	int PlayerDamage = 30;
 	int PlayerArmor = 10;
+	int playerSheild = 0;
 	int stageLavel; 
 	int sec = 0;
 	int tmpSec = 0;
@@ -18,25 +19,38 @@ public class GameManager {
 	int totalDamage = 0;
 	int score = 0;
 	boolean isongame;
+	boolean isSheild = false;
 	InGame inGame;
 	Game game;
 	Enemy enemy;
 	NumGame NG;
-	public void clear() {
-		System.out.println("clear!!!");
-		enemy.Health -= PlayerDamage;
-		totalDamage += PlayerDamage;
-		System.out.println(PlayerHealth);
-		getScore();
-		enemy.setHPbar();
+	public void clear(int c) {
+		if(c == 0) {
+			System.out.println("clear!!!");
+			enemy.Health -= PlayerDamage;
+			totalDamage += PlayerDamage;
+			System.out.println(PlayerHealth);
+			getScore();
+			enemy.setHPbar();
+		}
+		else {
+			System.out.println("ceild!!!");
+			isSheild = true;
+			enemy.Sheild.setVisible(true);
+			playerSheild = 15 * (col);
+			enemy.setStep();
+		}
 	}
 	public void countStep() {
 		enemy.setStep();
 	}
 	public void BeAttecked() {
-		PlayerHealth -= enemy.attackPower*(1-(1/(float)PlayerArmor));
-		inGame.setHPbar();
-		System.out.println("beAttacked!!!");
+		if(isSheild != true) {
+			PlayerHealth -= enemy.attackPower*(1-(1/(float)PlayerArmor));
+			inGame.setHPbar();
+			System.out.println("beAttacked!!!");
+		}
+		else System.out.println("isSheild!!!");
 		if(PlayerHealth < 0) {
 			NG.frozen();
 			
@@ -113,6 +127,7 @@ public class GameManager {
 	}
 	public void getScore() {
 		score += (int)(PlayerDamage*100*(float)(1f+(50f/tmpStep))*(float)(1f+(50f/tmpSec)));
+		enemy.Score.setText(String.format("%010d", score));
 		System.out.println("+"+(int)(PlayerDamage*100*(float)(1f+(50f/tmpStep))*(float)(1f+(50f/tmpSec))));
 		System.out.println("현재 : " + score);
 		tmpSec = 0;

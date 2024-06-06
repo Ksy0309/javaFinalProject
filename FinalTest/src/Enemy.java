@@ -9,6 +9,8 @@ public class Enemy extends JPanel{
 	String name = new String("");
 	JLabel NameText;
 	JLabel Step;
+	JLabel Sheild;
+	JLabel Score;
 	JProgressBar HPbar = new JProgressBar(JProgressBar.HORIZONTAL,0,MaxHealth);
 	JPanel P;
 	public Enemy(int level) {
@@ -17,7 +19,11 @@ public class Enemy extends JPanel{
 		setLayout(null);
 		NameText = new JLabel(name);
 		NameText.setHorizontalAlignment(JLabel.CENTER);
-		
+		Sheild = new JLabel(Integer.toString(GameManager.GM.playerSheild));
+		Sheild.setForeground(Color.green);
+		Sheild.setVisible(false);
+		Score = new JLabel();
+		Score.setText(String.format("%010d", GameManager.GM.score));
 		HPbar.setForeground(Color.red);
 		P = new JPanel();
 		Step = new JLabel(Integer.toString(attackStep));
@@ -27,12 +33,15 @@ public class Enemy extends JPanel{
 		HPbar.setBounds(((286-200)/2), 55, 200, 15);
 		P.setBounds(((286-150)/2), 80, 150, 150);
 		Step.setBounds(286-50, (258/2), 50, 50);
+		Sheild.setBounds(((286-40)),230,50,20);
+		Score.setBounds(0, 0, 200, 40);
 		add(NameText);
 		HPbar.setStringPainted(true);
 		add(HPbar);
 		add(P);
 		add(Step);
-		
+		add(Sheild);
+		add(Score);
 		setPreferredSize(new Dimension(286, 258));
 		System.out.println(getSize());
 		
@@ -53,6 +62,7 @@ public class Enemy extends JPanel{
 	public void setStep() {
 		attackStep--;
 		Step.setText(Integer.toString(attackStep));
+		Sheild.setText(Integer.toString(GameManager.GM.playerSheild));
 		if(Step.getText().equals("0")) {
 			GameManager.GM.BeAttecked();
 			attackStep = MaxAttackStep;

@@ -51,8 +51,10 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				bt.setIcon(image[8]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
+				isSheild();
 				GameManager.GM.countStep();
 				isClear();
+				
 			}
 		}
 		if((bt.index+1)% col != 0){
@@ -63,6 +65,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
+				isSheild();
 				GameManager.GM.countStep();
 				isClear();
 			}
@@ -75,6 +78,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
+				isSheild();
 				GameManager.GM.countStep();
 				isClear();
 			}
@@ -87,6 +91,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
+				isSheild();
 				GameManager.GM.countStep();
 				isClear();
 			}
@@ -107,6 +112,7 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 					}
 				}
 				Buttons[GameManager.GM.map].setText("-1");
+				Buttons[GameManager.GM.map].setIcon(image[GameManager.GM.map]);
 			}
 			
 			for(int C = 0;C<GameManager.GM.map ;C++) {
@@ -130,16 +136,36 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 	}
 	public void isClear() {
 			int CoCount = 0;
+			int revCoCount = 0;
 			for(int i = 0;i<GameManager.GM.map;i++) {
 				if(Buttons[i].getText().equals(Integer.toString(Buttons[i].index)) == true) {
 					CoCount++;
 				}
 			}
+			for(int i = 0;i<GameManager.GM.map+1;i++) {
+				if(Buttons[i].getText().equals(Integer.toString(Buttons[i].revIndex)) == true) {
+					revCoCount++;
+				}
+			}
 			if(CoCount == GameManager.GM.map) {
 				reset();
-				GameManager.GM.clear();
+				GameManager.GM.clear(0);
+			}
+			if(revCoCount == GameManager.GM.map) {
+				reset();
+				GameManager.GM.clear(1);
 			}
 		}
+	public void isSheild() {
+		if(GameManager.GM.isSheild == true) {
+			GameManager.GM.playerSheild--;
+			if(GameManager.GM.playerSheild <= 0) {
+				GameManager.GM.isSheild = false;
+				System.out.println("sheild end");
+				GameManager.GM.enemy.Sheild.setVisible(false);
+			}
+		}
+	}
 	public void frozen() {
 		for(int i = 0; i<col*col-1;i++) {
 			Buttons[i].setEnabled(false);
