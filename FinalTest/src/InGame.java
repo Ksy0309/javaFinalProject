@@ -25,7 +25,8 @@ public class InGame extends JPanel{
 		add(p);
 		add(NumPuz);
 		
-		setPreferredSize(new Dimension(300,600));
+		//setPreferredSize(new Dimension(300,600));
+		setSize(300, 600);
 		setLayout(grid);
 		setVisible(true);
 		GameManager.GM.inGame = this;

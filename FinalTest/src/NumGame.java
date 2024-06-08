@@ -21,15 +21,25 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		GridLayout grid = new GridLayout(n, n);
 		setLayout(grid);
 		for(int i=0; i < n*n; ++i) {
-			image[i] = new ImageIcon("./num"+(n)+"-"+i+".png");
+			image[i] = new ImageIcon("./asset/"+(n)+"-"+i+".png");
 		}
 		for(int i = 0; i<n*n-1;i++) {
 			Buttons[i] = new NumGameButton(i);
-			Buttons[i].setIcon(image[i]);
+			int offset = Buttons[i].getInsets().left;
+			//int offset = 1;
+			//Buttons[i].setContentAreaFilled(false);
+			Buttons[i].setPreferredSize(new Dimension(100, 100));
+			Buttons[i].setBorder(BorderFactory.createLineBorder(Color.black));
+			Buttons[i].setMargin(new Insets(0,0,0,0));
+			Icon img = resizeIcon(image[i], Buttons[i].getWidth()- offset, Buttons[i].getHeight() - offset);
+			Buttons[i].setIcon(resizeIcon(image[i], Buttons[i].getWidth()- offset, Buttons[i].getHeight() - offset));
+			//Buttons[i].setIcon(img);
 			Buttons[i].setModel(new BModel());
+			Buttons[i].setLayout(new BorderLayout());
 			Buttons[i].setFocusPainted(false);
 			add(Buttons[i]);
 			Buttons[i].addActionListener(this);
+			System.out.println(Buttons[i].getWidth() + "  " + Buttons[i].getHeight() + image[i].getIconHeight() + "   " + image[i].getIconWidth());		
 		}
 		Buttons[col*col-1] = new NumGameButton(-1);
 		Buttons[col*col-1].setModel(new BModel());
@@ -241,7 +251,12 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			}
 		}
 		
-
+		
+	}
+	private static Icon resizeIcon(ImageIcon icon, int resizedWidth, int resizedHeight)  {
+		Image img = icon.getImage();
+		Image resizedImage = img.getScaledInstance(resizedWidth, resizedHeight, Image.SCALE_SMOOTH);
+		return new ImageIcon(resizedImage);
 	}
 	@Override
 	public void mousePressed(MouseEvent e) {
