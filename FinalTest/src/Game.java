@@ -26,7 +26,8 @@ public class Game extends JFrame implements KeyListener{
 		con.addKeyListener(this);
 		con.setFocusable(true);
 		con.requestFocus();
-		setPreferredSize(new Dimension(300, 600));
+		setPreferredSize(new Dimension(900, 1260));
+		//setSize(900, 1200);
 		pack();
 		setVisible(true);
 	}

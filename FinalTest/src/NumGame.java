@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.DefaultButtonModel;
 
 public class NumGame extends JPanel implements ActionListener, MouseListener{
 	int col = 0;
@@ -47,18 +46,19 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		add(Buttons[col*col-1]);
 		Buttons[col*col-1].addActionListener(this);
 		reset();
-		setSize(300, 300);
+		//setSize(300, 300);
+		setBorder(BorderFactory.createEmptyBorder(0 , 135 , 0 , 135));
 		setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e) {
 		NumGameButton bt = (NumGameButton)e.getSource();
-		if(bt.getText().equals("-1"))return;
+		if(bt.value == -1)return;
 		if((bt.index+1)% col != 1){
-			if(Buttons[bt.index - 1].getText().equals("-1")) {	
-				Buttons[bt.index-1].setText(bt.getText());
+			if(Buttons[bt.index - 1].value == -1) {	
+				Buttons[bt.index-1].value = (bt.value);
 				Buttons[bt.index-1].setIcon(bt.getIcon());
-				bt.setText("-1");
-				bt.setIcon(image[8]);
+				bt.value = -1;
+				bt.setIcon(image[GameManager.GM.map]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
 				isSheild();
@@ -68,10 +68,10 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			}
 		}
 		if((bt.index+1)% col != 0){
-			if(Buttons[bt.index + 1].getText().equals("-1")) {	
-				Buttons[bt.index+1].setText(bt.getText());
+			if(Buttons[bt.index + 1].value == -1) {	
+				Buttons[bt.index+1].value = (bt.value);
 				Buttons[bt.index+1].setIcon(bt.getIcon());
-				bt.setText("-1");
+				bt.value = -1;
 				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
@@ -81,10 +81,10 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			}
 		}
 		if((bt.index) - col >= 0) {
-			if(Buttons[bt.index - col].getText().equals("-1")) {
-				Buttons[bt.index-col].setText(bt.getText());
+			if(Buttons[bt.index - col].value == -1) {
+				Buttons[bt.index-col].value = (bt.value);
 				Buttons[bt.index-col].setIcon(bt.getIcon());
-				bt.setText("-1");
+				bt.value = -1;
 				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
@@ -94,10 +94,10 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			}
 		}
 		if((bt.index) + col < col* col) {
-			if(Buttons[bt.index + col].getText().equals("-1")) {
-				Buttons[bt.index+ col].setText(bt.getText());
+			if(Buttons[bt.index + col].value == -1) {
+				Buttons[bt.index+ col].value = (bt.value);
 				Buttons[bt.index+ col].setIcon(bt.getIcon());
-				bt.setText("-1");
+				bt.value = -1;
 				bt.setIcon(image[col*col-1]);
 				GameManager.GM.stepCount++;
 				GameManager.GM.tmpStep++;
@@ -114,20 +114,21 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			for(int i = 0;i < GameManager.GM.map;i++) {
 				int ranIndex = (int)(Math.random()*GameManager.GM.map);
 				//Buttons[i].setText(Integer.toString((int)(Math.random()*GameManager.GM.map)));
-				Buttons[i].setText(Integer.toString(ranIndex));
+				//Buttons[i].setText(Integer.toString(ranIndex));
+				Buttons[i].value = ranIndex;
 				Buttons[i].setIcon(image[ranIndex]);
 				for(int j=0;j<i;j++) {
-					if(Buttons[i].getText().equals(Buttons[j].getText())) {
+					if(Buttons[i].value == Buttons[j].value) {
 						i--;
 					}
 				}
-				Buttons[GameManager.GM.map].setText("-1");
+				Buttons[GameManager.GM.map].value = -1;
 				Buttons[GameManager.GM.map].setIcon(image[GameManager.GM.map]);
 			}
 			
 			for(int C = 0;C<GameManager.GM.map ;C++) {
 				for(int c = C +1;c < GameManager.GM.map ;c++) {
-					if(Integer.valueOf(Buttons[C].getText()) > Integer.valueOf(Buttons[c].getText()))
+					if(Buttons[C].value > Buttons[c].value)
 						in++;
 				}
 				
@@ -148,12 +149,12 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			int CoCount = 0;
 			int revCoCount = 0;
 			for(int i = 0;i<GameManager.GM.map;i++) {
-				if(Buttons[i].getText().equals(Integer.toString(Buttons[i].index)) == true) {
+				if(Buttons[i].value == Buttons[i].index) {
 					CoCount++;
 				}
 			}
 			for(int i = 0;i<GameManager.GM.map+1;i++) {
-				if(Buttons[i].getText().equals(Integer.toString(Buttons[i].revIndex)) == true) {
+				if(Buttons[i].value == Buttons[i].revIndex) {
 					revCoCount++;
 				}
 			}

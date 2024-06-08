@@ -16,7 +16,7 @@ public class InGame extends JPanel{
 		HPbar.setStringPainted(true);
 		HPbar.setValue(GameManager.GM.PlayerHealth);
 		HPbar.setString(GameManager.GM.PlayerHealth + " / " +GameManager.GM.PlayerMaxHealth);
-		p.setSize(300, 300);
+		//p.setSize(300, 300);
 		p.setLayout(new BorderLayout());
 		
 		enemy = new Enemy(n-2);
@@ -26,11 +26,11 @@ public class InGame extends JPanel{
 		add(NumPuz);
 		
 		//setPreferredSize(new Dimension(300,600));
-		setSize(300, 600);
+		//setSize(300, 600);
 		setLayout(grid);
 		setVisible(true);
 		GameManager.GM.inGame = this;
-		System.out.println(enemy.getSize());
+		System.out.println(HPbar.getHeight());
 		
 	}
         

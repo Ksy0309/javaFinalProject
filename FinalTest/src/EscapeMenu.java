@@ -19,14 +19,14 @@ public class EscapeMenu extends JPanel implements ActionListener{
 		back.addActionListener(this);
 		home.addActionListener(this);
 		menuP.setBackground(new Color(0,0,0,50));
-		menuP.setPreferredSize(new Dimension(200, 400));
+		menuP.setPreferredSize(new Dimension(400, 800));
 		setBackground(new Color(0,0,0,128));
 		menuP.add(back);
 		menuP.add(home);
 		add(menuP);
 		
-		setSize(300, 600);
-		setLayout(new FlowLayout(FlowLayout.CENTER,75,60));
+		setSize(900, 1260);
+		setLayout(new FlowLayout(FlowLayout.CENTER,75,230));
 		
 		setVisible(false);
 	}

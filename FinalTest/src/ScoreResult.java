@@ -7,9 +7,9 @@ public class ScoreResult extends JPanel{
 	JLabel s4;
 	JLabel s5;
 	public ScoreResult() {
-		setBounds(20, 100, 250, 350);
+		setBounds(175, 200, 550, 750);
 		setBackground(new Color(0,0,0,150));
-		setBorder(BorderFactory.createEmptyBorder(0 , 30 , 0 , 40));
+		setBorder(BorderFactory.createEmptyBorder(0 , 60 , 0 , 80));
 		GridLayout grid = new GridLayout(5, 1);
 		setLayout(grid);
 		time = new JPanel();
@@ -27,9 +27,9 @@ public class ScoreResult extends JPanel{
 		t1 = new JLabel("소요시간 : ");
 		t2 = new JLabel(GameManager.GM.getMin()+ " : "+ GameManager.GM.getSec());
 		t1.setForeground(Color.white);
-		t1.setFont(new Font("Dialog", Font.BOLD,15));
+		t1.setFont(new Font("Dialog", Font.BOLD,30));
 		t2.setForeground(Color.white);
-		t2.setFont(new Font("Dialog", Font.BOLD,15));
+		t2.setFont(new Font("Dialog", Font.BOLD,30));
 		time.add(t1, BorderLayout.WEST);
 		time.add(t2, BorderLayout.EAST);
 		
@@ -37,9 +37,9 @@ public class ScoreResult extends JPanel{
 		s1 = new JLabel("스텝 : ");
 		s2 = new JLabel(""+GameManager.GM.stepCount);
 		s1.setForeground(Color.white);
-		s1.setFont(new Font("Dialog", Font.BOLD,15));
+		s1.setFont(new Font("Dialog", Font.BOLD,30));
 		s2.setForeground(Color.white);
-		s2.setFont(new Font("Dialog", Font.BOLD,15));
+		s2.setFont(new Font("Dialog", Font.BOLD,30));
 		step.add(s1, BorderLayout.WEST);
 		step.add(s2, BorderLayout.EAST);
 		
@@ -47,9 +47,9 @@ public class ScoreResult extends JPanel{
 		k1 = new JLabel("KILL : ");
 		k2 = new JLabel(""+(GameManager.GM.stageLavel-1));
 		k1.setForeground(Color.white);
-		k1.setFont(new Font("Dialog", Font.BOLD,15));
+		k1.setFont(new Font("Dialog", Font.BOLD,30));
 		k2.setForeground(Color.white);
-		k2.setFont(new Font("Dialog", Font.BOLD,15));
+		k2.setFont(new Font("Dialog", Font.BOLD,30));
 		kill.add(k1, BorderLayout.WEST);
 		kill.add(k2, BorderLayout.EAST);
 		
@@ -57,9 +57,9 @@ public class ScoreResult extends JPanel{
 		d1 = new JLabel("총 데미지 : ");
 		d2 = new JLabel(""+(GameManager.GM.totalDamage));
 		d1.setForeground(Color.white);
-		d1.setFont(new Font("Dialog", Font.BOLD,15));
+		d1.setFont(new Font("Dialog", Font.BOLD,30));
 		d2.setForeground(Color.white);
-		d2.setFont(new Font("Dialog", Font.BOLD,15));
+		d2.setFont(new Font("Dialog", Font.BOLD,30));
 		damage.add(d1, BorderLayout.WEST);
 		damage.add(d2, BorderLayout.EAST);
 		
@@ -67,9 +67,9 @@ public class ScoreResult extends JPanel{
 		to1 = new JLabel("총 점수 : ");
 		to2 = new JLabel(""+(GameManager.GM.stageLavel-1));
 		to1.setForeground(Color.white);
-		to1.setFont(new Font("Dialog", Font.BOLD,15));
+		to1.setFont(new Font("Dialog", Font.BOLD,30));
 		to2.setForeground(Color.white);
-		to2.setFont(new Font("Dialog", Font.BOLD,15));
+		to2.setFont(new Font("Dialog", Font.BOLD,30));
 		total.add(to1, BorderLayout.WEST);
 		total.add(to2, BorderLayout.EAST);
 		

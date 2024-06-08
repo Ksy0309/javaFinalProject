@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class MainMenu extends JPanel implements ActionListener{
-	NumGameButton buttons[] = new NumGameButton[3];
+	JButton buttons[] = new JButton[3];
 	JPanel LevelP = new JPanel();
 	JPanel startP = new JPanel();
 	
@@ -23,7 +23,7 @@ public class MainMenu extends JPanel implements ActionListener{
 		back.addActionListener(this);
 		LevelP.add(back);
 		for(int i=3;i<6;i++) {
-			buttons[i-3] = new NumGameButton(i);
+			buttons[i-3] = new JButton(Integer.toString(i));
 			LevelP.add(buttons[i-3]);
 			buttons[i-3].addActionListener(this);
 		}
@@ -32,7 +32,7 @@ public class MainMenu extends JPanel implements ActionListener{
 		add(startP);
 	}
 	public void actionPerformed(ActionEvent e) {
-		NumGameButton bt = (NumGameButton)e.getSource();
+		JButton bt = (JButton)e.getSource();
 		JButton BT = (JButton)e.getSource();
 		if(bt.getText().equals("3")) {
 			GameManager.GM.stageLavel = 1;
