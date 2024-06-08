@@ -13,7 +13,7 @@ public class Game extends JFrame implements KeyListener{
 	public Game() {
 		setTitle("첫번째 윈도우 프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
+		
 		GameManager.GM.game = this;
 		menu = new MainMenu();
 		reward = new Reward();
@@ -29,6 +29,7 @@ public class Game extends JFrame implements KeyListener{
 		setPreferredSize(new Dimension(900, 1260));
 		//setSize(900, 1200);
 		pack();
+		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 	
