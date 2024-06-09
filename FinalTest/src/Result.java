@@ -7,6 +7,7 @@ public class Result extends JPanel implements ActionListener{
 	JPanel MP;
 	JButton endGame;
 	ScoreResult score;
+	ImageIcon endHome = new ImageIcon("./asset/UI/resultHomeB.png");
 	public Result() {
 		setSize(900, 1260);
 		setLayout(null);
@@ -22,6 +23,11 @@ public class Result extends JPanel implements ActionListener{
 		resultMassage.setHorizontalAlignment(JLabel.CENTER);
 		endGame = new JButton("메인 메뉴로 돌아가기");
 		endGame.setBounds(300, 1010, 300, 150);
+		endGame.setIcon(endHome);
+		endGame.setModel(new BModel());
+		endGame.setOpaque(false);
+		endGame.setBorderPainted(false);
+		endGame.setContentAreaFilled(false);
 		endGame.addActionListener(this);
 		add(MP);
 		add(score);
