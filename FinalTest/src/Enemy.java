@@ -14,6 +14,9 @@ public class Enemy extends JPanel implements ActionListener{
 	JLabel Sheild;
 	JLabel Score;
 	JButton esc;
+	ImageIcon level1 = new ImageIcon("./asset/Enemy/KingSlime.png");
+	ImageIcon level2 = new ImageIcon("./asset/Enemy/Dragon.png");
+	ImageIcon level3 = new ImageIcon("./asset/Enemy/Boss.png");
 	JProgressBar HPbar = new JProgressBar(JProgressBar.HORIZONTAL,0,MaxHealth);
 	JPanel P;
 	public Enemy(int level) {
@@ -95,7 +98,8 @@ public class Enemy extends JPanel implements ActionListener{
 			name = "적1";
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
-			P.setBackground(Color.red);
+			//P.setBackground(Color.red);
+			P.add(new JLabel(level1));
 			setHPbar();
 		}
 		if(level == 2) {
@@ -108,7 +112,8 @@ public class Enemy extends JPanel implements ActionListener{
 			name = "적2";
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
-			P.setBackground(Color.blue);
+			//P.setBackground(Color.blue);
+			P.add(new JLabel(level2));
 			setHPbar();
 		}
 		if(level == 3) {
@@ -121,7 +126,8 @@ public class Enemy extends JPanel implements ActionListener{
 			name = "보스";
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
-			P.setBackground(Color.green);
+			//P.setBackground(Color.green);
+			P.add(new JLabel(level1));
 			setHPbar();
 		}
 	}

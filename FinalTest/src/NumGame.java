@@ -38,7 +38,6 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 			Buttons[i].setFocusPainted(false);
 			add(Buttons[i]);
 			Buttons[i].addActionListener(this);
-			System.out.println(Buttons[i].getWidth() + "  " + Buttons[i].getHeight() + image[i].getIconHeight() + "   " + image[i].getIconWidth());		
 		}
 		Buttons[col*col-1] = new NumGameButton(-1);
 		Buttons[col*col-1].setModel(new BModel());
