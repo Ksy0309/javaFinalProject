@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 public class GameManager {
 	public static GameManager GM = new GameManager();
+	AudioManager AM = new AudioManager();
 	int stepCount;
 	int map = 0;
 	int col = 0;
@@ -28,6 +29,7 @@ public class GameManager {
 	public void clear(int c) {
 		if(c == 0) {
 			System.out.println("clear!!!");
+			AM.attackSound();
 			enemy.Health -= PlayerDamage;
 			totalDamage += PlayerDamage;
 			System.out.println(PlayerHealth);
@@ -47,11 +49,15 @@ public class GameManager {
 	}
 	public void BeAttecked() {
 		if(isSheild != true) {
+			AM.beAttackedSound();
 			PlayerHealth -= enemy.attackPower*(1-(1/(float)PlayerArmor));
 			inGame.setHPbar();
 			System.out.println("beAttacked!!!");
 		}
-		else System.out.println("isSheild!!!");
+		else {
+			AM.SheildSound();
+			System.out.println("isSheild!!!");
+		}
 		if(PlayerHealth < 0) {
 			NG.frozen();
 			
