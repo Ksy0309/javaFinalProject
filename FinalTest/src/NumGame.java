@@ -46,8 +46,8 @@ public class NumGame extends JPanel implements ActionListener, MouseListener{
 		Buttons[col*col-1].addActionListener(this);
 		reset();
 		//setSize(900, 600);
-		setPreferredSize(new Dimension(900, 600));
-		setBorder(BorderFactory.createEmptyBorder(0 , 150 , 0 , 150));
+		setPreferredSize(new Dimension(800, 480));
+		setBorder(BorderFactory.createEmptyBorder(0 , 160 , 0 , 160));
 		setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e) {

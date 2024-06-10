@@ -15,7 +15,7 @@ public class MainMenu extends JPanel implements ActionListener{
 	ImageIcon[] Num = new ImageIcon[3];
 	ImageIcon backI = new ImageIcon("./asset/UI/backB.png");
 	public MainMenu() {
-		setBorder(BorderFactory.createEmptyBorder(250 , 0 , 0 , 0));
+		setBorder(BorderFactory.createEmptyBorder(150 , 0 , 0 , 0));
 		setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
 		//setPreferredSize(new Dimension(300, 600));
 		JButton start = new JButton();

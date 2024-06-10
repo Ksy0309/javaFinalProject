@@ -31,28 +31,28 @@ public class Enemy extends JPanel implements ActionListener{
 		Score = new JLabel();
 		Score.setText("현재 점수 : "+String.format("%010d", GameManager.GM.score));
 		Score.setFont(new Font("Dialog", Font.BOLD, 25));
-		Score.setBounds(30, 10, 400, 40);
+		Score.setBounds(80, 10, 400, 40);
 		HPbar.setForeground(Color.red);
 		P = new JPanel();
 		Step = new JLabel(Integer.toString(attackStep));
 		esc = new JButton();
 		setLevel(GameManager.GM.stageLavel);
-		NameText.setBounds(350,20,200,100);
+		NameText.setBounds(350,40,200,100);
 		NameText.setFont(new Font("Dialog", Font.BOLD, 30));
-		HPbar.setBounds(200, 95, 500, 20);
-		//P.setBounds(300, 120, 300, 300);
-		P.setBounds(250, 150, 400, 400);
+		HPbar.setBounds(250, 120, 400, 15);
+		P.setBounds(300, 140, 300, 300);
+		//P.setBounds(250, 150, 400, 400);
 		//Step.setBounds(650, 200, 100, 100);
-		Step.setBounds(650, 300, 100, 100);
+		Step.setBounds(600, 230, 100, 100);
 		Step.setBorder(BorderFactory.createLineBorder(Color.black));
 		Step.setHorizontalAlignment(JLabel.CENTER);
 		Step.setFont(new Font("Dialog", Font.BOLD,25));
 		//Sheild.setBounds(790, 325,100,100);
-		Sheild.setBounds(750, 480,100,100);
+		Sheild.setBounds(735, 340,100,100);
 		Sheild.setBorder(BorderFactory.createLineBorder(Color.black));
 		Sheild.setHorizontalAlignment(JLabel.CENTER);
 		Sheild.setFont(new Font("Dialog", Font.BOLD, 25));
-		esc.setBounds(750, 20, 120, 120);
+		esc.setBounds(710, 10, 120, 120);
 		esc.setIcon(new ImageIcon("./asset/UI/escIcon.png"));
 		esc.setOpaque(false);
 		esc.setBorderPainted(false);
@@ -110,8 +110,8 @@ public class Enemy extends JPanel implements ActionListener{
 			name = "적1";
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
-			P.setBackground(Color.red);
-			//P.add(new JLabel(level1));
+			//P.setBackground(Color.red);
+			P.add(new JLabel(level3));
 			setHPbar();
 		}
 		if(level == 2) {
@@ -125,7 +125,7 @@ public class Enemy extends JPanel implements ActionListener{
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.blue);
-			//P.add(new JLabel(level2));
+			P.add(new JLabel(level3));
 			setHPbar();
 		}
 		if(level == 3) {
@@ -139,7 +139,7 @@ public class Enemy extends JPanel implements ActionListener{
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.green);
-			//P.add(new JLabel(level1));
+			P.add(new JLabel(level3));
 			setHPbar();
 		}
 	}

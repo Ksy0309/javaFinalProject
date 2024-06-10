@@ -18,7 +18,7 @@ public class InGame extends JPanel{
 		HPbar.setString(GameManager.GM.PlayerHealth + " / " +GameManager.GM.PlayerMaxHealth);
 		//p.setSize(900, 500);
 		p.setLayout(new BorderLayout());
-		p.setPreferredSize(new Dimension(900, 450));
+		p.setPreferredSize(new Dimension(900, 470));
 		//p.setBorder(BorderFactory.createEmptyBorder(0, 0, 100, 0));
 		enemy = new Enemy(n-2);
 		p.add("Center", enemy);
@@ -28,8 +28,8 @@ public class InGame extends JPanel{
 		setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		//setPreferredSize(new Dimension(300,600));
 		//setSize(300, 600);
-		//setLayout(new FlowLayout());
-		setLayout(grid);
+		setLayout(new FlowLayout());
+		//setLayout(grid);
 		setVisible(true);
 		GameManager.GM.inGame = this;
 		System.out.println(GameManager.GM.stageLavel);

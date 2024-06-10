@@ -10,7 +10,7 @@ public class GameManager {
 	int col = 0;
 	int PlayerMaxHealth = 100;
 	int PlayerHealth = PlayerMaxHealth;
-	int PlayerDamage = 30;
+	int PlayerDamage = 300;
 	int PlayerArmor = 10;
 	int playerSheild = 0;
 	int stageLavel; 
@@ -38,6 +38,7 @@ public class GameManager {
 		}
 		else {
 			System.out.println("ceild!!!");
+			AM.SheildSound();
 			isSheild = true;
 			enemy.Sheild.setVisible(true);
 			playerSheild = 15 * (col);
