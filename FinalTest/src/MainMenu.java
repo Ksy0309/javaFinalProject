@@ -39,8 +39,8 @@ public class MainMenu extends JPanel implements ActionListener{
 		startP.add(start);
 		startP.add(eixt);
 		startP.setBackground(new Color(0,0,0,0));
-		startP.setPreferredSize(new Dimension(900, 1260));
-		startP.setBorder(BorderFactory.createEmptyBorder(100 , 0 , 0 , 0));
+		startP.setPreferredSize(new Dimension(900, 1100));
+		startP.setBorder(BorderFactory.createEmptyBorder(30 , 0 , 0 , 0));
 		startP.setLayout(new FlowLayout(FlowLayout.CENTER, 800, 50));
 		titleP.setBackground(Color.gray);
 		titleP.add(new JLabel(title));

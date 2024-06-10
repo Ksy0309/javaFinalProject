@@ -16,17 +16,19 @@ public class InGame extends JPanel{
 		HPbar.setStringPainted(true);
 		HPbar.setValue(GameManager.GM.PlayerHealth);
 		HPbar.setString(GameManager.GM.PlayerHealth + " / " +GameManager.GM.PlayerMaxHealth);
-		//p.setSize(300, 300);
+		//p.setSize(900, 500);
 		p.setLayout(new BorderLayout());
-		
+		p.setPreferredSize(new Dimension(900, 450));
+		//p.setBorder(BorderFactory.createEmptyBorder(0, 0, 100, 0));
 		enemy = new Enemy(n-2);
 		p.add("Center", enemy);
 		p.add("South", HPbar);
 		add(p);
 		add(NumPuz);
-		
+		setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		//setPreferredSize(new Dimension(300,600));
 		//setSize(300, 600);
+		//setLayout(new FlowLayout());
 		setLayout(grid);
 		setVisible(true);
 		GameManager.GM.inGame = this;
