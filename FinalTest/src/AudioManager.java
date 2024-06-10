@@ -4,9 +4,31 @@ import java.awt.*;
 import java.io.*;
 import java.util.*;
 public class AudioManager {
-	Clip bgm;
+	File[] BGM = new File[3];
+	Clip bgm = null;
 	public AudioManager() {
+		BGM[0] = new File("");
+		BGM[1] = new File("");
+		BGM[2] = new File("");
+	}
+	
+	public void startBGM() {
+		try {
+			bgm = AudioSystem.getClip();
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(BGM[GameManager.GM.stageLavel - 1]);
+			bgm.open(audioInputStream);
+		}catch(LineUnavailableException e){
+			e.printStackTrace();
+		}catch(UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 		
+		bgm.loop(Clip.LOOP_CONTINUOUSLY);;
+	}
+	public void stopBGM() {
+		bgm.stop();
 	}
 	public void attackSound() {
 		Clip effSound = null;

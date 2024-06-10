@@ -32,7 +32,7 @@ public class InGame extends JPanel{
 		setLayout(grid);
 		setVisible(true);
 		GameManager.GM.inGame = this;
-		System.out.println(HPbar.getHeight());
+		System.out.println(GameManager.GM.stageLavel);
 		
 	}
         

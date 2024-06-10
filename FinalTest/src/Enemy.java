@@ -29,9 +29,9 @@ public class Enemy extends JPanel implements ActionListener{
 		Sheild.setForeground(Color.green);
 		//Sheild.setVisible(false);
 		Score = new JLabel();
-		Score.setText(String.format("%010d", GameManager.GM.score));
+		Score.setText("현재 점수 : "+String.format("%010d", GameManager.GM.score));
 		Score.setFont(new Font("Dialog", Font.BOLD, 25));
-		Score.setBounds(30, 10, 200, 40);
+		Score.setBounds(30, 10, 400, 40);
 		HPbar.setForeground(Color.red);
 		P = new JPanel();
 		Step = new JLabel(Integer.toString(attackStep));
