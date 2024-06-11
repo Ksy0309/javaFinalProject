@@ -9,20 +9,20 @@ public class Result extends JPanel implements ActionListener{
 	ScoreResult score;
 	ImageIcon endHome = new ImageIcon("./asset/UI/resultHomeB.png");
 	public Result() {
-		setSize(900, 1260);
+		setSize(800, 1000);
 		setLayout(null);
 		setBackground(new Color(0,0,0,128));
 		resultMassage = new JLabel("점수판");
 		MP = new JPanel();
 		MP.add(resultMassage);
-		MP.setBounds(200, 50, 500, 120);
+		MP.setBounds(150, 50, 500, 120);
 		MP.setBackground(new Color(0,0,0,0));
 		score = new ScoreResult();
 		resultMassage.setForeground(Color.white);
 		resultMassage.setFont(new Font("Dialog", Font.BOLD,60));
 		resultMassage.setHorizontalAlignment(JLabel.CENTER);
 		endGame = new JButton("메인 메뉴로 돌아가기");
-		endGame.setBounds(300, 1010, 300, 150);
+		endGame.setBounds(250, 750, 300, 150);
 		endGame.setIcon(endHome);
 		endGame.setModel(new BModel());
 		endGame.setOpaque(false);

@@ -13,6 +13,8 @@ public class Enemy extends JPanel implements ActionListener{
 	JLabel Step;
 	JLabel Sheild;
 	JLabel Score;
+	JLabel enemyI = new JLabel();
+	JLabel backI = new JLabel();
 	JButton esc;
 	ImageIcon level1 = new ImageIcon("./asset/Enemy/Mushmom.png");
 	ImageIcon level2 = new ImageIcon("./asset/Enemy/Colossus.png");
@@ -35,7 +37,9 @@ public class Enemy extends JPanel implements ActionListener{
 		Score.setBounds(30, 10, 400, 40);
 		HPbar.setForeground(Color.red);
 		P = new JPanel();
+		P.add(enemyI);
 		Back = new JPanel();
+		Back.add(backI);
 		topMenu = new JPanel();
 		Back.setSize(800,500);
 		topMenu.setSize(800, 60);
@@ -122,8 +126,10 @@ public class Enemy extends JPanel implements ActionListener{
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.red);
-			P.add(new JLabel(level1));
-			Back.add(new JLabel(new ImageIcon("./asset/Enemy/MushmomBack.png")));
+			enemyI.setIcon(level1);
+			//P.add(new JLabel(level1));
+			//Back.add(new JLabel(new ImageIcon("./asset/Enemy/MushmomBack.png")));
+			backI.setIcon(new ImageIcon("./asset/Enemy/MushmomBack.png"));
 			setHPbar();
 		}
 		if(level == 2) {
@@ -137,8 +143,10 @@ public class Enemy extends JPanel implements ActionListener{
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.blue);
-			P.add(new JLabel(level2));
-			Back.add(new JLabel(new ImageIcon("./asset/Enemy/ColossusBack.png")));
+			//P.add(new JLabel(level2));
+			enemyI.setIcon(level2);
+			backI.setIcon(new ImageIcon("./asset/Enemy/ColossusBack.png"));
+			//Back.add(new JLabel(new ImageIcon("./asset/Enemy/ColossusBack.png")));
 			setHPbar();
 		}
 		if(level == 3) {
@@ -152,8 +160,10 @@ public class Enemy extends JPanel implements ActionListener{
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.green);
-			P.add(new JLabel(level3));
-			Back.add(new JLabel(new ImageIcon("./asset/Enemy/BossBack.png")));
+			//P.add(new JLabel(level3));
+			enemyI.setIcon(level3);
+			backI.setIcon(new ImageIcon("./asset/Enemy/BossBack.png"));
+			//Back.add(new JLabel(new ImageIcon("./asset/Enemy/BossBack.png")));
 			setHPbar();
 		}
 	}

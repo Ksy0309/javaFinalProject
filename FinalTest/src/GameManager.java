@@ -146,6 +146,7 @@ public class GameManager {
 	public String getTotalScore() {
 		String total ="";
 		System.out.println("최종 : " +score);
+		enemy.Score.setText(String.format("%010d", score));
 		total = String.format("%010d", score);
 		return total;
 	}

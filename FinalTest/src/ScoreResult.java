@@ -7,8 +7,8 @@ public class ScoreResult extends JPanel{
 	JLabel s4;
 	JLabel s5;
 	public ScoreResult() {
-		setBounds(175, 200, 550, 750);
-		setBackground(new Color(0,0,0,150));
+		setBounds(150, 150, 500, 550);
+		setBackground(new Color(0,0,0,180));
 		setBorder(BorderFactory.createEmptyBorder(0 , 60 , 0 , 80));
 		GridLayout grid = new GridLayout(5, 1);
 		setLayout(grid);
