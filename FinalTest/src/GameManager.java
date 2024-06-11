@@ -10,7 +10,7 @@ public class GameManager {
 	int col = 0;
 	int PlayerMaxHealth = 100;
 	int PlayerHealth = PlayerMaxHealth;
-	int PlayerDamage = 300;
+	int PlayerDamage = 30;
 	int PlayerArmor = 10;
 	int playerSheild = 0;
 	int stageLavel; 
