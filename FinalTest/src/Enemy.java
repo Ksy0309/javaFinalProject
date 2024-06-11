@@ -14,10 +14,11 @@ public class Enemy extends JPanel implements ActionListener{
 	JLabel Sheild;
 	JLabel Score;
 	JButton esc;
-	ImageIcon level1 = new ImageIcon("./asset/Enemy/KingSlime.png");
-	ImageIcon level2 = new ImageIcon("./asset/Enemy/Dragon.png");
+	ImageIcon level1 = new ImageIcon("./asset/Enemy/Mushmom.png");
+	ImageIcon level2 = new ImageIcon("./asset/Enemy/Colossus.png");
 	ImageIcon level3 = new ImageIcon("./asset/Enemy/Boss.png");
 	JProgressBar HPbar = new JProgressBar(JProgressBar.HORIZONTAL,0,MaxHealth);
+	JPanel Back, topMenu;
 	JPanel P;
 	public Enemy(int level) {
 		GameManager.GM.enemy = this;
@@ -31,34 +32,42 @@ public class Enemy extends JPanel implements ActionListener{
 		Score = new JLabel();
 		Score.setText("현재 점수 : "+String.format("%010d", GameManager.GM.score));
 		Score.setFont(new Font("Dialog", Font.BOLD, 25));
-		Score.setBounds(80, 10, 400, 40);
+		Score.setBounds(30, 10, 400, 40);
 		HPbar.setForeground(Color.red);
 		P = new JPanel();
+		Back = new JPanel();
+		topMenu = new JPanel();
+		Back.setSize(800,500);
+		topMenu.setSize(800, 60);
 		Step = new JLabel(Integer.toString(attackStep));
 		esc = new JButton();
 		setLevel(GameManager.GM.stageLavel);
-		NameText.setBounds(350,40,200,100);
+		NameText.setBounds(300,40,200,100);
 		NameText.setFont(new Font("Dialog", Font.BOLD, 30));
-		HPbar.setBounds(250, 120, 400, 15);
-		P.setBounds(300, 140, 300, 300);
+		HPbar.setBounds(200, 120, 400, 15);
+		P.setBounds(250, 140, 300, 300);
+		P.setOpaque(true);
+		P.setBackground(new Color(0,0,0,0));
 		//P.setBounds(250, 150, 400, 400);
 		//Step.setBounds(650, 200, 100, 100);
-		Step.setBounds(600, 230, 100, 100);
+		Step.setBounds(550, 230, 100, 100);
 		Step.setBorder(BorderFactory.createLineBorder(Color.black));
 		Step.setHorizontalAlignment(JLabel.CENTER);
 		Step.setFont(new Font("Dialog", Font.BOLD,25));
 		//Sheild.setBounds(790, 325,100,100);
-		Sheild.setBounds(735, 340,100,100);
-		Sheild.setBorder(BorderFactory.createLineBorder(Color.black));
+		Sheild.setBounds(685, 340,100,100);
+		Sheild.setBorder(BorderFactory.createLineBorder(Color.green));
 		Sheild.setHorizontalAlignment(JLabel.CENTER);
 		Sheild.setFont(new Font("Dialog", Font.BOLD, 25));
-		esc.setBounds(710, 10, 120, 120);
+		Sheild.setVisible(false);
+		esc.setBounds(730, 0, 60, 60);
 		esc.setIcon(new ImageIcon("./asset/UI/escIcon.png"));
 		esc.setOpaque(false);
 		esc.setBorderPainted(false);
 		esc.setContentAreaFilled(false);
 		esc.addActionListener(this);
 		esc.setModel(new BModel());
+		add(new JLabel(new ImageIcon("./asset/Enemy/Boss.png")));
 		add(NameText);
 		HPbar.setStringPainted(true);
 		add(HPbar);
@@ -68,6 +77,8 @@ public class Enemy extends JPanel implements ActionListener{
 		add(Sheild);
 		add(Score);
 		add(esc);
+		add(topMenu);
+		add(Back);
 		//setPreferredSize(new Dimension(286, 258));
 		System.out.println(getSize());
 		
@@ -111,7 +122,8 @@ public class Enemy extends JPanel implements ActionListener{
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.red);
-			P.add(new JLabel(level3));
+			P.add(new JLabel(level1));
+			Back.add(new JLabel(new ImageIcon("./asset/Enemy/MushmomBack.png")));
 			setHPbar();
 		}
 		if(level == 2) {
@@ -125,7 +137,8 @@ public class Enemy extends JPanel implements ActionListener{
 			NameText.setText(name);
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.blue);
-			P.add(new JLabel(level3));
+			P.add(new JLabel(level2));
+			Back.add(new JLabel(new ImageIcon("./asset/Enemy/ColossusBack.png")));
 			setHPbar();
 		}
 		if(level == 3) {
@@ -140,6 +153,7 @@ public class Enemy extends JPanel implements ActionListener{
 			Step.setText(Integer.toString(attackStep));
 			//P.setBackground(Color.green);
 			P.add(new JLabel(level3));
+			Back.add(new JLabel(new ImageIcon("./asset/Enemy/BossBack.png")));
 			setHPbar();
 		}
 	}
