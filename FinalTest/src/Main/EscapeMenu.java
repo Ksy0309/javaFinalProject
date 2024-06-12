@@ -16,7 +16,7 @@ public class EscapeMenu extends JPanel implements ActionListener{
 	JButton home;
 	ImageIcon homeI = new ImageIcon("./asset/UI/escHome.png");
 	ImageIcon backI = new ImageIcon("./asset/UI/escBack.png");
-	EscapeMenu(){
+	public EscapeMenu(){
 		
 		//esc메뉴의 홈 버튼 설정
 		home = new JButton("메인 메뉴");

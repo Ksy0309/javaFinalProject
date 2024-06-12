@@ -4,10 +4,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class Result extends JPanel implements ActionListener{
-	JLabel resultMassage;
-	JPanel MP;
-	JButton endGame;
-	ScoreResult score;
+	JLabel resultMassage; //게임 클리어 또는 게임 오버여부를 출력하는 라벨
+	JPanel MP;				//컴포넌트들을 모아놓은 박스 패널
+	JButton endGame;		//타이틀 화면으로 이동하는 버튼
+	ScoreResult score;		//최종 정보 출력 객체
 	ImageIcon endHome = new ImageIcon("./asset/UI/resultHomeB.png");
 	public Result() {
 		//패널의 사이즈, 레이아웃, 배경 설정
